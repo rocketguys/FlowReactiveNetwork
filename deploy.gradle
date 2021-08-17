@@ -79,8 +79,18 @@ if (isAndroidProject()) {
 
 project.afterEvaluate {
     publishing {
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/rocketguys/FlowReactiveNetwork")
+                credentials {
+                    username = System.getenv("GITHUB_ACTOR")
+                    password = System.getenv("GITHUB_TOKEN")
+                }
+            }
+        }
         publications {
-            mavenPublish(MavenPublication) {
+            gpr(MavenPublication) {
                 if (isAndroidProject()) {
                     artifact bundleReleaseAar
                     artifact androidJavadocsJar
