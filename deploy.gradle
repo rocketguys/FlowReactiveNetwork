@@ -11,25 +11,6 @@ ext {
     vcsUrl = 'https://github.com/AndreySBer/FlowReactiveNetwork.git'
 }
 
-bintray {
-    user = property('bintrayuser')
-    key = property('bintraykey')
-    publications = ['gpr']
-
-    pkg {
-        repo = this.repo
-        name = this.repoName
-        userOrg = user
-        licenses = ['Apache-2.0']
-        vcsUrl = this.vcsUrl
-
-        version {
-            name = this.ver
-            released = new Date()
-        }
-    }
-}
-
 if (isAndroidProject()) {
     task androidJavadocs(type: Javadoc) {
         title = "${getStringProperty("mavProjectName")} ${project.version} API"
