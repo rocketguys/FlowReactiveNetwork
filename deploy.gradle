@@ -14,7 +14,7 @@ ext {
 bintray {
     user = property('bintrayuser')
     key = property('bintraykey')
-    publications = ['mavenPublish']
+    publications = ['gpr']
 
     pkg {
         repo = this.repo
